@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Advisor Buffalo NY | Benton Advisory Group</title>
+<meta name="description" content="Benton Advisory Group helps individuals, families, and business owners in Western New York build personalized financial plans. Schedule your free strategy call today.">
+<meta property="og:title" content="Financial Advisor Buffalo NY | Benton Advisory Group">
+<meta property="og:description" content="Personalized financial planning, investment management, and protection planning for Western New York. Advise. Protect. Grow.">
+<meta property="og:image" content="assets/logo.jpg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,401,700&f[]=general-sans@400,401,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A1F44;
+    --navy-deep: #071634;
+    --gold: #C9922A;
+    --gold-dark: #A97A1F;
+    --cream: #F7F5F0;
+    --charcoal: #2C2C2C;
+    --soft-gray: #E8E6E1;
+    --white: #FFFFFF;
+    --serif: 'Zodiak', Georgia, serif;
+    --sans: 'General Sans', -apple-system, Helvetica, sans-serif;
+    --nav-h: 62px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--charcoal);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; color: var(--navy); }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .gold-rule {
+    width: var(--rule-w, 80px); height: 2px;
+    background: var(--gold);
+    border: none;
+    margin: 28px 0;
+    transition: width .5s ease;
+  }
+  .gold-rule.centered { margin-left: auto; margin-right: auto; }
+  /* JS adds .reveal-rule (skipped for reduced motion); width animates 0 -> full on scroll into view */
+  .gold-rule.reveal-rule:not(.visible) { width: 0; }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 16px;
+    padding: 15px 30px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+    text-align: center;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(10,31,68,.2); }
+  .btn-gold { background: var(--gold); color: var(--navy-deep); }
+  .btn-gold:hover { background: var(--gold-dark); }
+  .btn-outline-light { border: 1px solid rgba(255,255,255,.55); color: var(--white); }
+  .btn-outline-light:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+  .btn-outline-navy { border: 1px solid var(--navy); color: var(--navy); }
+  .btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+  .btn:focus-visible, a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  section { padding: 96px 0; }
+
+  .section-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+  .section-head h2 { font-size: clamp(30px, 4vw, 40px); line-height: 1.15; }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--white);
+    transition: box-shadow .25s ease;
+  }
+  .nav.scrolled { box-shadow: 0 2px 16px rgba(10,31,68,.12); }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: var(--nav-h);
+  }
+  .wordmark { display: flex; align-items: center; }
+  .wordmark img { height: 44px; width: auto; display: block; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .nav-links a:not(.btn):hover { color: var(--gold-dark); }
+  .nav-links .btn { padding: 11px 22px; font-size: 15px; }
+  .hamburger {
+    display: none;
+    background: none; border: none; cursor: pointer; padding: 8px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px; background: var(--navy);
+    margin: 5px 0; transition: transform .2s ease, opacity .2s ease;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    background: var(--navy);
+    overflow: hidden;
+    /* Hero bottom edge = viewport bottom on every screen. The fixed nav
+       overlays the hero's top, so the hero is 100vh tall with the nav
+       height as top padding — the visible area below the nav is exactly
+       calc(100vh - var(--nav-h)) and the text centers within it. */
+    min-height: 100vh;
+    padding: var(--nav-h) 0 32px;
+  }
+  /* Photo anchored right so the face sits right of center; left edge fades into navy */
+  .hero-bg {
+    position: absolute;
+    top: 0; right: 0; bottom: 0;
+    width: min(56vw, 860px);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 42%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 42%);
+  }
+  .hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+  /* Navy overlay ~68%, darker on the left where the text sits */
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(97deg, rgba(7,22,52,.93) 0%, rgba(10,31,68,.74) 50%, rgba(10,31,68,.5) 100%);
+  }
+  /* Anchor hero copy near the left edge (~7% / 100px on desktop) instead of the centered container */
+  .hero .container {
+    position: relative; z-index: 2;
+    max-width: none;
+    margin: 0;
+    width: 100%;
+    padding: 0 24px 0 clamp(24px, 7vw, 100px);
+  }
+  .hero-text { max-width: 560px; }
+  .hero .gold-rule { --rule-w: 60px; }
+  .hero h1 {
+    color: var(--white);
+    font-size: clamp(34px, 3.9vw, 48px);
+    line-height: 1.12;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    color: rgba(247,245,240,.85);
+    font-size: 18px;
+    max-width: 520px;
+  }
+  /* Hero vertical rhythm — ONE method: top margins only. The reset zeroes
+     every child margin (kills the global .eyebrow / .gold-rule / .trust-bar
+     margins inside the hero) so nothing competes with the values below. */
+  .hero-text > * { margin: 0; }
+  .hero-text h1 { margin-top: 14px; }
+  .hero-text .gold-rule { margin-top: 22px; }
+  .hero-text .hero-sub { margin-top: 22px; }
+  .hero-text .hero-ctas { margin-top: 40px; }
+  .hero-text .hero-alt { margin-top: 20px; }
+  .hero-text .trust-bar { margin-top: 56px; }
+  .hero-ctas .btn { font-size: 17px; padding: 17px 36px; }
+  .hero-alt {
+    font-style: italic;
+    font-size: 15.5px;
+    color: rgba(247,245,240,.8);
+  }
+  .hero-alt a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .hero-alt a:hover { color: #E0B355; }
+  .trust-bar {
+    display: flex; gap: 28px; flex-wrap: wrap;
+    font-size: 14px;
+    color: rgba(247,245,240,.75);
+  }
+  .trust-bar div { display: flex; align-items: center; gap: 8px; }
+  .trust-bar svg { flex-shrink: 0; }
+
+  /* ---------- ABOUT ---------- */
+  .about { background: var(--cream); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 72px;
+    align-items: start;
+  }
+  .about-photo { position: relative; }
+  .about-photo img { border-radius: 4px; position: relative; z-index: 1; }
+  .about-photo::after {
+    content: "";
+    position: absolute;
+    top: -14px; left: -14px; width: 120px; height: 120px;
+    border-top: 2px solid var(--gold);
+    border-left: 2px solid var(--gold);
+  }
+  /* Extra air between the thin "I" and "H" strokes only */
+  .about h2 .i-gap { margin-right: 0.12em; }
+  /* Full-width centered closing statement below both columns */
+  .callout.about-vision {
+    border-left: none;
+    max-width: 700px;
+    margin: 64px auto 0;
+    text-align: center;
+  }
+  .about-vision .gold-rule { margin: 0 auto 18px; }
+  /* Mobile-only bottom divider inside the vision statement card */
+  .about-close { display: none; }
+  .about p { margin-bottom: 18px; }
+  .signature-block { margin-top: 20px; }
+  .sig-script {
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .sig-suffix {
+    font-family: var(--serif);
+    font-size: 27px;
+    color: var(--navy);
+  }
+  .sig-firm {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+  .callout {
+    border-left: 3px solid var(--gold);
+    background: var(--white);
+    padding: 28px 32px;
+    margin-top: 36px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--navy);
+  }
+  .callout cite {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+  }
+
+  /* ---------- SERVICES ---------- */
+  #services { background: var(--white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--soft-gray);
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 40px 32px;
+    box-shadow: 0 16px 40px rgba(10,31,68,.14);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .services-grid .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(10,31,68,.18);
+  }
+  .card svg { margin-bottom: 22px; }
+  .card h3 { font-size: 23px; margin-bottom: 12px; }
+  .card p { font-size: 16px; color: #4a4a4a; }
+  .services-cta { text-align: center; margin-top: 56px; }
+  .services-cta p { margin-bottom: 20px; font-size: 17px; color: var(--navy); }
+
+  /* ---------- WHO WE HELP ---------- */
+  .who { background: var(--navy); color: var(--white); }
+  .who .section-head h2 { color: var(--white); }
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .tile {
+    background: #132A56;
+    border: 1px solid transparent;
+    border-top: 3px solid var(--gold);
+    border-radius: 0 0 4px 4px;
+    padding: 36px 30px;
+    transition: border-color .2s ease;
+  }
+  .tile:hover {
+    border-color: rgba(201,146,42,.4);
+    border-top-color: var(--gold);
+  }
+  .tile svg { margin-bottom: 20px; }
+  .tile h3 { color: var(--white); font-size: 22px; margin-bottom: 10px; }
+  .tile p { font-size: 15.5px; color: rgba(247,245,240,.78); }
+  .qualify {
+    text-align: center;
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(247,245,240,.7);
+    max-width: 560px;
+    margin: 52px auto 0;
+  }
+
+  /* ---------- RESOURCES ---------- */
+  .resources { background: var(--cream); }
+  /* Value-teaser layout: centered column pushing to the external funnel */
+  .res-grid {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .res-grid h2 { font-size: clamp(28px, 3.5vw, 36px); line-height: 1.18; margin-bottom: 20px; }
+  .checklist {
+    list-style: none;
+    max-width: 620px;
+    margin: 32px auto 40px;
+    text-align: left;
+  }
+  .checklist li {
+    display: flex; gap: 14px; align-items: flex-start;
+    margin-bottom: 18px;
+    font-size: 16.5px;
+  }
+  .checklist svg { flex-shrink: 0; margin-top: 3px; }
+  .res-ctas { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+  /* ---------- FAQ ---------- */
+  #faq { background: var(--white); }
+  .faq-list { max-width: 780px; margin: 0 auto; }
+  .faq-more {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 17px;
+    color: var(--navy);
+  }
+  .faq-more a {
+    color: var(--gold-dark);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .faq-more a:hover { color: var(--gold); }
+  .faq-item { border-bottom: 1px solid var(--soft-gray); }
+  .faq-item:first-child { border-top: 1px solid var(--soft-gray); }
+  .faq-q {
+    width: 100%;
+    background: none; border: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    text-align: left;
+    padding: 26px 8px;
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--navy);
+  }
+  .faq-q .chev { transition: transform .25s ease; flex-shrink: 0; }
+  .faq-item.open .chev { transform: rotate(180deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+  }
+  .faq-a p { padding: 0 8px 26px; font-size: 16.5px; color: #4a4a4a; max-width: 680px; }
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+  }
+  /* Crisp geometric line-work: bold layered squares, top-right */
+  .final-cta::before {
+    content: "";
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 380px; height: 380px;
+    border: 2px solid rgba(201,146,42,.6);
+    transform: rotate(45deg);
+  }
+  .final-cta::after {
+    content: "";
+    position: absolute;
+    top: -125px; right: -125px;
+    width: 550px; height: 550px;
+    border: 1px solid rgba(201,146,42,.25);
+    transform: rotate(45deg);
+  }
+  /* Mirrored pair, bottom-left */
+  .cta-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .cta-lines::before {
+    content: "";
+    position: absolute;
+    bottom: -90px; left: -90px;
+    width: 300px; height: 300px;
+    border: 2px solid rgba(201,146,42,.45);
+    transform: rotate(45deg);
+  }
+  .cta-lines::after {
+    content: "";
+    position: absolute;
+    bottom: -135px; left: -135px;
+    width: 450px; height: 450px;
+    border: 1px solid rgba(201,146,42,.18);
+    transform: rotate(45deg);
+  }
+  /* Defined content panel: lighter navy, hairline gold frame */
+  .cta-panel {
+    position: relative;
+    z-index: 1;
+    background: #13284F;
+    border: 1px solid var(--gold);
+    box-shadow: 0 20px 50px rgba(7,22,52,.5);
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 48px;
+  }
+  .final-cta h2 { color: var(--white); font-size: clamp(30px, 4.5vw, 46px); max-width: 700px; margin: 0 auto 20px; }
+  .final-cta p { color: rgba(247,245,240,.82); max-width: 580px; margin: 0 auto 36px; }
+  .final-cta .btn {
+    font-size: 18px;
+    padding: 20px 46px;
+    /* Raised, not glowing: inner top highlight + hard gold-dark ledge */
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 3px 0 var(--gold-dark);
+  }
+  .final-cta p.final-note { margin: 16px auto 0; font-size: 14.5px; font-style: italic; color: rgba(247,245,240,.7); }
+  .final-note a { color: var(--gold); }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--navy-deep);
+    color: rgba(247,245,240,.75);
+    font-size: 14.5px;
+    padding: 72px 0 0;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 56px;
+  }
+  .footer-logo img { width: 220px; margin-bottom: 4px; }
+  footer h4 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  footer ul { list-style: none; }
+  footer li { margin-bottom: 10px; }
+  .contact-list li { display: flex; align-items: flex-start; gap: 10px; }
+  .contact-list svg { flex-shrink: 0; margin-top: 4px; }
+  footer a { color: rgba(247,245,240,.75); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding: 24px 0 32px;
+  }
+  .footer-bottom p { margin-bottom: 8px; }
+  .disclaimer { font-size: 11px; color: rgba(247,245,240,.45); line-height: 1.6; }
+
+  /* ---------- REVEAL ANIMATION ---------- */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .4s ease, transform .4s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  /* Card stagger (100ms steps) is set as inline transition-delay by JS,
+     and reveal classes are removed after the transition so hover effects
+     keep their own 200ms timing. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn, .card, .tile, .gold-rule { transition: none; }
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    section { padding: 72px 0; }
+    /* Stacked hero: clean uncropped photo on top, solid navy panel below.
+       No overlay, no crop — text never sits over the image on small screens. */
+    .hero {
+      display: block;
+      min-height: 0;
+      padding: var(--nav-h) 0 0;
+    }
+    .hero-bg {
+      position: relative;
+      top: auto; right: auto; bottom: auto;
+      width: 100%;
+      height: auto;
+      /* Navy breathing room between the nav bar and the top of his head */
+      padding-top: 22px;
+      -webkit-mask-image: none;
+      mask-image: none;
+      /* Beats the inline parallax transform the JS applies on scroll */
+      transform: none !important;
+    }
+    .hero-bg img {
+      display: block;
+      width: 100%;
+      /* Tight head-and-shoulders crop so the gold CTA lands above the fold */
+      height: clamp(210px, 34vh, 320px);
+      object-fit: cover;
+      object-position: center 4%;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .gold-rule.about-close { display: block; margin: 24px auto 0; }
+    /* Top edge blends down from the nav so the photo is framed in navy */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; top: 0;
+      height: 24%;
+      background: linear-gradient(180deg,
+        #0A1F44 0%,
+        rgba(10,31,68,.5) 40%,
+        rgba(10,31,68,0) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    /* Bottom third of the photo melts into the navy panel — no visible seam */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 36%;
+      background: linear-gradient(180deg,
+        rgba(10,31,68,0) 0%,
+        rgba(10,31,68,.35) 45%,
+        rgba(10,31,68,.78) 75%,
+        #0A1F44 100%);
+      pointer-events: none;
+    }
+    .hero-overlay { display: none; }
+    .hero .container { padding: 32px 24px 60px; }
+    .hero-text { max-width: none; }
+    .hero-text .hero-ctas { margin-top: 28px; }
+    /* Stack the three trust items in one left-aligned column */
+    .trust-bar { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .hero-ctas .btn { display: block; text-align: center; }
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid, .who-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+
+    .cta-panel { padding: 48px 24px; }
+    /* Snug two-line button: full width, less vertical bulk */
+    .final-cta .btn { display: block; padding-top: 12px; padding-bottom: 12px; }
+
+    .nav-links {
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: var(--white);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 12px 24px 24px;
+      box-shadow: 0 12px 24px rgba(10,31,68,.12);
+      display: none;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 14px 0; font-size: 17px; }
+    .nav-links .btn { margin-top: 8px; width: 100%; }
+    .hamburger { display: block; }
+    .nav.menu-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.menu-open .hamburger span:nth-child(2) { opacity: 0; }
+    .nav.menu-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="wordmark" aria-label="Benton Advisory Group — home"><img src="assets/logo-nav.png" alt="Benton Advisory Group"></a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#who">Who We Help</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://calendly.com/benton-advisory-group/free-strategy-session" target="_blank" rel="noopener" class="btn btn-gold">Book a Free Call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"><img src="assets/headshot.jpg" alt=""></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-text">
+      <span class="eyebrow">Financial Advisor &mdash; Western New York</span>
+      <h1>Your Financial Future Deserves a Clear Plan and a <em>Trusted</em> Partner.</h1>
+      <hr class="gold-rule">
+      <p class="hero-sub">For individuals, families, and business owners across Western New York &mdash; Benton Advisory Group delivers personalized financial planning built around your goals, your timeline, and your legacy.</p>
+      <div class="hero-ctas">
+        <a href="https://calendly.com/benton-advisory-group/free-strategy-session" target="_blank" rel="noopener" class="btn btn-gold">Schedule Your Free Strategy Call</a>
+      </div>
+      <p class="hero-alt">Not ready yet? <a href="https://go.bentonadvisory.com/video" target="_blank" rel="noopener">Watch the Free Video First &rarr;</a></p>
+      <div class="trust-bar">
+        <div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          Fiduciary Advisor
+        </div>
+        <div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Serving Western New York
+        </div>
+        <div>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          <a href="tel:7162179530" style="color:inherit;text-decoration:none;">716-217-9530</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Meet Your Advisor</span>
+      <h2><span class="i-gap">I</span> Help You Build a Clear Path to Financial Security.</h2>
+      <hr class="gold-rule centered">
+    </div>
+    <div class="about-grid">
+    <div class="about-photo reveal">
+      <img src="assets/headshot.jpg" alt="Louis C. Benton II">
+    </div>
+    <div class="reveal">
+      <p>At Benton Advisory Group, I help individuals, families, and business owners across Western New York build a clear, personalized path toward financial security. My services are tailored to each client's goals and delivered with the personal attention of a local, relationship-driven practice.</p>
+      <p>I believe that a sound financial plan is the foundation for every decision we make together. Whether you're preparing for retirement, growing your investment portfolio, or protecting your family's future with the right insurance strategy &mdash; I'm here to guide every step.</p>
+      <p>Integrity is everything. To truly be a trusted advisor, your best must be the standard.</p>
+      <div class="signature-block">
+        <p class="sig-script">Louis C. Benton <span class="sig-suffix">II</span></p>
+        <p class="sig-firm">Benton Advisory Group</p>
+      </div>
+    </div>
+    </div>
+    <blockquote class="callout about-vision reveal">
+      <hr class="gold-rule centered">
+      <cite>Vision Statement</cite>
+      &ldquo;To be the most trusted financial partner for individuals, families, and businesses across Western New York &mdash; empowering every client to pursue their goals with clarity, confidence, and lasting security.&rdquo;
+      <hr class="gold-rule centered about-close">
+    </blockquote>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2>Comprehensive Financial Services, Personally Delivered</h2>
+      <hr class="gold-rule centered">
+    </div>
+    <div class="services-grid">
+      <div class="card reveal">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" stroke="#C9922A"/></svg>
+        <h3>Financial Planning</h3>
+        <p>Retirement income strategy, cash flow analysis, and education funding &mdash; designed around your specific goals and timeline.</p>
+      </div>
+      <div class="card reveal">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><path d="M3 21h18"/><path d="M5 21V10l5 3 4-6 5 4v10" stroke="#C9922A"/></svg>
+        <h3>Investment Management</h3>
+        <p>Tailored portfolios aligned with your risk tolerance, time horizon, and objectives &mdash; built to grow and protect your wealth over time.</p>
+      </div>
+      <div class="card reveal">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><path d="M12 3l8 3v6c0 4.5-3.5 8-8 9-4.5-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4" stroke="#C9922A"/></svg>
+        <h3>Protection Planning</h3>
+        <p>Term, whole life, and business-owner coverage solutions that safeguard your family's financial future &mdash; including key person insurance and buy-sell agreement funding.</p>
+      </div>
+    </div>
+    <div class="services-cta reveal">
+      <p>Not sure which service fits your situation?</p>
+      <a href="https://calendly.com/benton-advisory-group/free-strategy-session" target="_blank" rel="noopener" class="btn btn-gold">Schedule a Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE HELP -->
+<section class="who" id="who">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Who We Serve</span>
+      <h2>We Serve People Who Are Serious About Their Financial Future</h2>
+      <hr class="gold-rule centered">
+    </div>
+    <div class="who-grid">
+      <div class="tile reveal">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.5-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14c2.8.3 4.5 2.4 4.5 5"/></svg>
+        <h3>Families &amp; Individuals</h3>
+        <p>Planning for the future, protecting what you've built, and creating a legacy.</p>
+      </div>
+      <div class="tile reveal">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>
+        <h3>Business Owners</h3>
+        <p>From key person insurance to succession planning &mdash; your business deserves protection too.</p>
+      </div>
+      <div class="tile reveal">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="#C9922A"/></svg>
+        <h3>Pre-Retirees (50&ndash;70)</h3>
+        <p>With $300K+ in investable assets, you need a retirement strategy that protects against market crashes and provides lifetime income.</p>
+      </div>
+    </div>
+    <p class="qualify">We work best with Erie County residents with $300,000 or more in investable assets who are ready to take action.</p>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="resources" id="resources">
+  <div class="container res-grid">
+    <div class="reveal">
+      <span class="eyebrow">Free Resources</span>
+      <h2>Learn How to Protect Your Retirement Savings From Market Crashes</h2>
+      <hr class="gold-rule centered">
+      <p>For Erie County residents aged 50&ndash;70 with $300K+ in investable assets &mdash; this free video training reveals one simple change you can make to your retirement strategy right now.</p>
+      <ul class="checklist">
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+          How to protect a portion of your retirement savings from market crashes while still participating in gains
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+          How Fixed Indexed Annuities provide downside protection, tax-deferred growth, and lifetime income
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+          How to eliminate the stress of trying to time the market
+        </li>
+      </ul>
+      <div class="res-ctas">
+        <a href="https://go.bentonadvisory.com/video" target="_blank" rel="noopener" class="btn btn-gold">Watch the Free Training &rarr;</a>
+        <a href="https://go.bentonadvisory.com/learn" target="_blank" rel="noopener" class="btn btn-outline-navy">Get the Free Guide</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Frequently Asked Questions</span>
+      <h2>Common Questions, Honest Answers</h2>
+      <hr class="gold-rule centered">
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How does a fee-only advisor get paid?
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>A fee-only advisor is compensated directly by the client &mdash; not through commissions on products. This structure removes conflicts of interest and ensures my advice is always in your best interest.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          When should I start working with a financial advisor?
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>The best time is now. Whether you're 10 years from retirement or already there, a personalized strategy helps protect and grow what you've worked hard to build.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How much do I need to retire comfortably in New York?
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>The answer depends on your lifestyle, healthcare needs, and goals. A complimentary strategy call is the fastest way to get a clear, personalized estimate.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What is a fiduciary financial advisor?
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>A fiduciary is legally and ethically required to act in your best interest at all times &mdash; not just recommend &ldquo;suitable&rdquo; products. At Benton Advisory Group, we operate as a fiduciary practice.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What are Fixed Indexed Annuities and are they right for me?
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>FIAs offer downside protection from market crashes while allowing you to participate in market gains. They may be an excellent fit for pre-retirees looking for safety and income. Schedule a call to find out if they're right for you.</p></div>
+      </div>
+    </div>
+    <p class="faq-more reveal">Still have questions? <a href="https://calendly.com/benton-advisory-group/free-strategy-session" target="_blank" rel="noopener">Let's talk &rarr;</a></p>
+  </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <div class="cta-lines" aria-hidden="true"></div>
+  <div class="container reveal">
+    <div class="cta-panel">
+      <h2>Ready to Take Control of Your Financial Future?</h2>
+      <hr class="gold-rule centered">
+      <p>Schedule a free, no-obligation strategy call with Louis Benton II today. One conversation can bring clarity to your financial goals &mdash; no pressure, no obligation.</p>
+      <a href="https://calendly.com/benton-advisory-group/free-strategy-session" target="_blank" rel="noopener" class="btn btn-gold">Schedule My Free Strategy Call</a>
+      <p class="final-note">Not sure where to start? <a href="https://go.bentonadvisory.com/video" target="_blank" rel="noopener">Watch the free video first</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <img src="assets/logo-nav.png" alt="Benton Advisory Group — Advise, Protect, and Grow">
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="contact-list">
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <a href="mailto:louis@bentonadvisorygroup.com">louis@bentonadvisorygroup.com</a>
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            <a href="tel:7162179530">716-217-9530</a>
+          </li>
+          <li>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.8"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <span>100 College Pkwy<br>Williamsville, NY 14221</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Benton Advisory Group. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a></p>
+      <p class="disclaimer">Investment advisory services offered through [Firm Name]. Securities offered through [Broker-Dealer]. Member FINRA/SIPC. This placeholder must be replaced with the exact disclosure language required by Louis's broker-dealer before launch.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    nav.classList.toggle('menu-open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  navLinks.addEventListener('click', e => {
+    if (e.target.tagName === 'A') {
+      navLinks.classList.remove('open');
+      nav.classList.remove('menu-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = null;
+        other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Scroll reveal with card stagger; reveal classes are removed after the
+  // transition so card/button hover transitions regain their own timing
+  if (!prefersReduced) {
+    document.querySelectorAll('.gold-rule').forEach(el => el.classList.add('reveal-rule'));
+    document.querySelectorAll('.services-grid, .who-grid').forEach(grid => {
+      Array.from(grid.children).forEach((el, i) => {
+        el.style.transitionDelay = (i * 100) + 'ms';
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add('visible');
+        observer.unobserve(el);
+        const cleanup = () => {
+          el.classList.remove('reveal', 'visible', 'reveal-rule');
+          el.style.transitionDelay = '';
+        };
+        el.addEventListener('transitionend', cleanup, { once: true });
+        setTimeout(cleanup, 1400);
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .reveal-rule').forEach(el => observer.observe(el));
+
+    // Hero parallax: background moves at 80% of scroll speed
+    const heroBg = document.querySelector('.hero-bg');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y <= window.innerHeight) {
+        heroBg.style.transform = 'translateY(' + (y * 0.2) + 'px)';
+      }
+    }, { passive: true });
+  }
+</script>
+</body>
+</html>
