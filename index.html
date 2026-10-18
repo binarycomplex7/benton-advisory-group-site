@@ -186,20 +186,8 @@
   .hero-text .gold-rule { margin-top: 22px; }
   .hero-text .hero-sub { margin-top: 22px; }
   .hero-text .hero-ctas { margin-top: 40px; }
-  .hero-text .hero-alt { margin-top: 20px; }
   .hero-text .trust-bar { margin-top: 56px; }
   .hero-ctas .btn { font-size: 17px; padding: 17px 36px; }
-  .hero-alt {
-    font-style: italic;
-    font-size: 15.5px;
-    color: rgba(247,245,240,.8);
-  }
-  .hero-alt a {
-    color: var(--gold);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  .hero-alt a:hover { color: #E0B355; }
   .trust-bar {
     display: flex; gap: 28px; flex-wrap: wrap;
     font-size: 14px;
@@ -258,6 +246,20 @@
     color: var(--gold);
     margin-top: 4px;
   }
+  .about p.brokercheck {
+    margin: 28px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--soft-gray);
+    font-size: 15px;
+    color: #4a4a4a;
+  }
+  .brokercheck a {
+    color: var(--gold-dark);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .brokercheck a:hover { color: var(--navy); }
   .callout {
     border-left: 3px solid var(--gold);
     background: var(--white);
@@ -466,8 +468,6 @@
     /* Raised, not glowing: inner top highlight + hard gold-dark ledge */
     box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 3px 0 var(--gold-dark);
   }
-  .final-cta p.final-note { margin: 16px auto 0; font-size: 14.5px; font-style: italic; color: rgba(247,245,240,.7); }
-  .final-note a { color: var(--gold); }
 
   /* ---------- FOOTER ---------- */
   footer {
@@ -503,7 +503,24 @@
     padding: 24px 0 32px;
   }
   .footer-bottom p { margin-bottom: 8px; }
-  .disclaimer { font-size: 11px; color: rgba(247,245,240,.45); line-height: 1.6; }
+  .disclaimer {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: rgba(247,245,240,.85);
+    max-width: 860px;
+    margin-top: 16px;
+  }
+  .disclaimer p { margin-bottom: 10px; }
+  .disclaimer strong { font-weight: 600; color: var(--cream); }
+  .disclaimer a, .footer-bottom .crs-link {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .disclaimer a:hover, .footer-bottom .crs-link:hover { color: #E0B355; }
+  .credit { font-size: 11px; color: rgba(247,245,240,.45); margin-top: 12px; margin-bottom: 0; }
+  .credit a { color: rgba(247,245,240,.55); }
+  .credit a:hover { color: var(--gold); }
 
   /* ---------- REVEAL ANIMATION ---------- */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity .4s ease, transform .4s ease; }
@@ -642,17 +659,16 @@
   <div class="container">
     <div class="hero-text">
       <span class="eyebrow">Financial Advisor &mdash; Western New York</span>
-      <h1>Your Financial Future Deserves a Clear Plan and a <em>Trusted</em> Partner.</h1>
+      <h1>Your Financial Future Deserves a Clear Plan and a <em>Professional</em> Partner.</h1>
       <hr class="gold-rule">
       <p class="hero-sub">For individuals, families, and business owners across Western New York &mdash; Benton Advisory Group delivers personalized financial planning built around your goals, your timeline, and your legacy.</p>
       <div class="hero-ctas">
         <a href="https://calendly.com/benton-advisory-group/free-strategy-session" target="_blank" rel="noopener" class="btn btn-gold">Schedule Your Free Strategy Call</a>
       </div>
-      <p class="hero-alt">Not ready yet? <a href="https://go.bentonadvisory.com/video" target="_blank" rel="noopener">Watch the Free Video First &rarr;</a></p>
       <div class="trust-bar">
         <div>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-          Fiduciary Advisor
+          Financial Advisor
         </div>
         <div>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -660,7 +676,7 @@
         </div>
         <div>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-          <a href="tel:7162179530" style="color:inherit;text-decoration:none;">716-217-9530</a>
+          <a href="tel:7165079797" style="color:inherit;text-decoration:none;">716-507-9797 (Voice Only)</a>
         </div>
       </div>
     </div>
@@ -682,17 +698,18 @@
     <div class="reveal">
       <p>At Benton Advisory Group, I help individuals, families, and business owners across Western New York build a clear, personalized path toward financial security. My services are tailored to each client's goals and delivered with the personal attention of a local, relationship-driven practice.</p>
       <p>I believe that a sound financial plan is the foundation for every decision we make together. Whether you're preparing for retirement, growing your investment portfolio, or protecting your family's future with the right insurance strategy &mdash; I'm here to guide every step.</p>
-      <p>Integrity is everything. To truly be a trusted advisor, your best must be the standard.</p>
+      <p>Integrity is everything. To truly be a valued advisor, your best must be the standard.</p>
       <div class="signature-block">
         <p class="sig-script">Louis C. Benton <span class="sig-suffix">II</span></p>
         <p class="sig-firm">Benton Advisory Group</p>
       </div>
+      <p class="brokercheck">Check the background of investment professionals associated with this site on FINRA&rsquo;s <a href="http://brokercheck.finra.org" target="_blank" rel="noopener">BrokerCheck</a>.</p>
     </div>
     </div>
     <blockquote class="callout about-vision reveal">
       <hr class="gold-rule centered">
       <cite>Vision Statement</cite>
-      &ldquo;To be the most trusted financial partner for individuals, families, and businesses across Western New York &mdash; empowering every client to pursue their goals with clarity, confidence, and lasting security.&rdquo;
+      &ldquo;To be the most valued financial partner for individuals, families, and businesses across Western New York &mdash; empowering every client to pursue their goals with clarity, confidence, and lasting security.&rdquo;
       <hr class="gold-rule centered about-close">
     </blockquote>
   </div>
@@ -715,7 +732,7 @@
       <div class="card reveal">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><path d="M3 21h18"/><path d="M5 21V10l5 3 4-6 5 4v10" stroke="#C9922A"/></svg>
         <h3>Investment Management</h3>
-        <p>Tailored portfolios aligned with your risk tolerance, time horizon, and objectives &mdash; built to grow and protect your wealth over time.</p>
+        <p>Tailored portfolios aligned with your risk tolerance, time horizon, and objectives &mdash; built to preserve and manage your wealth over time.</p>
       </div>
       <div class="card reveal">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0A1F44" stroke-width="1.5"><path d="M12 3l8 3v6c0 4.5-3.5 8-8 9-4.5-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4" stroke="#C9922A"/></svg>
@@ -766,7 +783,7 @@
       <span class="eyebrow">Free Resources</span>
       <h2>Learn How to Protect Your Retirement Savings From Market Crashes</h2>
       <hr class="gold-rule centered">
-      <p>For Erie County residents aged 50&ndash;70 with $300K+ in investable assets &mdash; this free video training reveals one simple change you can make to your retirement strategy right now.</p>
+      <p>For Erie County residents aged 50&ndash;70 with $300K+ in investable assets &mdash; this free guide reveals one simple change you can make to your retirement strategy right now.</p>
       <ul class="checklist">
         <li>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
@@ -782,8 +799,7 @@
         </li>
       </ul>
       <div class="res-ctas">
-        <a href="https://go.bentonadvisory.com/video" target="_blank" rel="noopener" class="btn btn-gold">Watch the Free Training &rarr;</a>
-        <a href="https://go.bentonadvisory.com/learn" target="_blank" rel="noopener" class="btn btn-outline-navy">Get the Free Guide</a>
+        <a href="https://go.bentonadvisory.com/learn" target="_blank" rel="noopener" class="btn btn-gold">Get the Free Guide</a>
       </div>
     </div>
   </div>
@@ -848,7 +864,6 @@
       <hr class="gold-rule centered">
       <p>Schedule a free, no-obligation strategy call with Louis Benton II today. One conversation can bring clarity to your financial goals &mdash; no pressure, no obligation.</p>
       <a href="https://calendly.com/benton-advisory-group/free-strategy-session" target="_blank" rel="noopener" class="btn btn-gold">Schedule My Free Strategy Call</a>
-      <p class="final-note">Not sure where to start? <a href="https://go.bentonadvisory.com/video" target="_blank" rel="noopener">Watch the free video first</a>.</p>
     </div>
   </div>
 </section>
@@ -875,11 +890,11 @@
         <ul class="contact-list">
           <li>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-            <a href="mailto:louis@bentonadvisorygroup.com">louis@bentonadvisorygroup.com</a>
+            <a href="mailto:Louis.Benton@prudential.com">Louis.Benton@prudential.com</a>
           </li>
           <li>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-            <a href="tel:7162179530">716-217-9530</a>
+            <a href="tel:7165079797">716-507-9797 (Voice Only)</a>
           </li>
           <li>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.8"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -889,8 +904,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Benton Advisory Group. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a></p>
-      <p class="disclaimer">Investment advisory services offered through [Firm Name]. Securities offered through [Broker-Dealer]. Member FINRA/SIPC. This placeholder must be replaced with the exact disclosure language required by Louis's broker-dealer before launch.</p>
+      <p>&copy; 2026 Benton Advisory Group. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://www.lpl.com/lpl-enterprise.html" target="_blank" rel="noopener" class="crs-link">LPL Enterprise Form CRS</a></p>
+      <div class="disclaimer">
+        <p><strong>Securities and investment advisory services offered through LPL Enterprise (LPLE), a Registered Investment Advisor, Member FINRA/SIPC, and an affiliate of LPL Financial.</strong></p>
+        <p>LPLE and LPL Financial are not affiliated with Benton Advisory Group.</p>
+        <p>Check the background of investment professionals associated with this site on FINRA&rsquo;s <a href="http://brokercheck.finra.org" target="_blank" rel="noopener">BrokerCheck</a>.</p>
+      </div>
+      <p class="credit">Built by <a href="https://www.afewpixels.io" target="_blank" rel="noopener noreferrer">A Few Pixels</a></p>
     </div>
   </div>
 </footer>
