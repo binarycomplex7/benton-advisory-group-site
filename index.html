@@ -615,6 +615,13 @@
     .nav.menu-open .hamburger span:nth-child(2) { opacity: 0; }
     .nav.menu-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   }
+
+  /* Print / save-as-PDF: keep the nav at the top of page 1 so it never
+     overlays body copy in printed or captured review copies. */
+  @media print {
+    .nav { position: absolute; box-shadow: none; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -682,7 +689,7 @@
     </div>
     <div class="reveal">
       <p>At Benton Advisory Group, I help individuals, families, and business owners across Western New York build a clear, personalized path toward financial security. My services are tailored to each client's goals and delivered with the personal attention of a local, relationship-driven practice.</p>
-      <p>I believe that a sound financial plan is the foundation for every decision we make together. Whether you're preparing for retirement, growing your investment portfolio, or protecting your family's future with the right insurance strategy &mdash; I'm here to guide every step.</p>
+      <p>I believe that a sound financial plan is the foundation for every decision we make together. Whether you're preparing for retirement, managing your investment portfolio, or protecting your family's future with the right insurance strategy &mdash; I'm here to guide every step.</p>
       <p>Integrity is everything. To truly be a valued advisor, your best must be the standard.</p>
       <div class="signature-block">
         <p class="sig-script">Louis C. Benton <span class="sig-suffix">II</span></p>
@@ -744,7 +751,7 @@
       <div class="tile reveal">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.5-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14c2.8.3 4.5 2.4 4.5 5"/></svg>
         <h3>Families &amp; Individuals</h3>
-        <p>Planning for the future, protecting what you've built, and creating a legacy.</p>
+        <p>Planning for the future, preserving what you've built, and creating a legacy.</p>
       </div>
       <div class="tile reveal">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>
@@ -754,7 +761,7 @@
       <div class="tile reveal">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="#C9922A"/></svg>
         <h3>Pre-Retirees (50&ndash;70)</h3>
-        <p>With $300K+ in investable assets, you need a retirement strategy that protects against market crashes and provides lifetime income.</p>
+        <p>With $300K+ in investable assets, consider a retirement strategy that accounts for market risk, income needs, and your long-term financial goals.</p>
       </div>
     </div>
     <p class="qualify">We work best with Erie County residents with $300,000 or more in investable assets who are ready to take action.</p>
@@ -772,17 +779,10 @@
     <div class="faq-list reveal">
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          How does a fee-only advisor get paid?
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-        <div class="faq-a"><p>A fee-only advisor is compensated directly by the client &mdash; not through commissions on products. This structure removes conflicts of interest and ensures my advice is always in your best interest.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
           When should I start working with a financial advisor?
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="faq-a"><p>The best time is now. Whether you're 10 years from retirement or already there, a personalized strategy helps protect and grow what you've worked hard to build.</p></div>
+        <div class="faq-a"><p>The best time is now. Whether you're 10 years from retirement or already there, a personalized strategy helps preserve and manage what you've worked hard to build.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
@@ -796,14 +796,14 @@
           What is a fiduciary financial advisor?
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="faq-a"><p>A fiduciary is legally and ethically required to act in your best interest at all times &mdash; not just recommend &ldquo;suitable&rdquo; products. At Benton Advisory Group, we operate as a fiduciary practice.</p></div>
+        <div class="faq-a"><p>A fiduciary financial advisor is generally required to act in a client&rsquo;s best interest when providing investment advisory services. Our financial professionals may provide both investment advisory and brokerage services. When providing investment advisory services, they act in a fiduciary capacity. Different standards and obligations may apply when they provide brokerage services.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
           What are Fixed Indexed Annuities and are they right for me?
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9922A" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="faq-a"><p>FIAs offer downside protection from market crashes while allowing you to participate in market gains. They may be an excellent fit for pre-retirees looking for safety and income. Schedule a call to find out if they're right for you.</p></div>
+        <div class="faq-a"><p>FIAs offer downside protection from market downturns while allowing you to participate in market gains. They may be an excellent fit for pre-retirees looking for safety and income. Schedule a call to find out if they're right for you.</p></div>
       </div>
     </div>
     <p class="faq-more reveal">Still have questions? <a href="https://calendly.com/benton-advisory-group/free-strategy-session" target="_blank" rel="noopener">Let's talk &rarr;</a></p>
